@@ -1,0 +1,13 @@
+.container {
+     height: 24px;
+     width: 500px;
+     border-radius: 16px;
+     padding: 0;
+     background-color: rgb(227, 230, 229);
+     display: flex;
+     align-items: center;
+     justify-content: start;
+}
+h1 {
+     font-size: 16px;
+}
