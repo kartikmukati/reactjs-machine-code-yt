@@ -1,37 +1,33 @@
 import './App.css'
 
-import styled, {keyframes} from 'styled-components';
+import { styled, keyframes } from 'styled-components'
 
 function App(props) {
 
-  const progress_ = props.percentage
+  const progress = props.percentage;
 
   return (
-    <div className="container">
-      <Progress y={props.percentage}>
-        <h1>{progress_}%</h1>
-      </Progress>
+    <OuterCircle percentage={progress}>
+    <div className='inner-circle'>
+      <h1>{progress}%</h1>
     </div>
+    </OuterCircle>
   )
 }
 
 export default App
 
-const progressAnimation = (percentage) => keyframes`
-  0% {width: 0%;}
-  100% { width: ${percentage}%;}
+const progressAnimate = (percentage) => keyframes`
+  0% {background: conic-gradient(blue 0deg, rgb(228, 225, 225) 0deg);}
+  100% {background: conic-gradient(blue ${percentage / 100 * 360}deg, rgb(228, 225, 225) 0deg);}
 `
 
-
-const Progress = styled.div`
-  height: 100%;
-  width: auto;
-  border-radius: 16px;
-  background-color: red;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  animation: ${(props) => progressAnimation(props.y)} 2s forwards
+const OuterCircle = styled.div`
+     width: 500px;
+     height: 500px;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     animation: ${(props) => progressAnimate(props.percentage)} 2s forwards;
 `
-
-
