@@ -2,94 +2,45 @@ body {
      padding: 50px 50px;
      background-color: rgb(255, 255, 255);
 }
-
 h1 {
      font-size: larger;
      color: black;
 }
-
 .container {
      width: 800px;
      height: 200px;
      display: flex;
      align-items: center;
      justify-content: center;
-     background-color: rgb(34, 122, 108);
      border-radius: 33px;
-     background: linear-gradient(145deg, #cacaca, #f0f0f0);
+     background: linear-gradient(145deg, #e83838, #961616);
      box-shadow:  5px 5px 17px #b3b3b3,
                  -5px -5px 17px #ffffff;
 }
-
-.progress-line-outer {
-     width: 800px;
-     height: 2px;
-     background-color: rgb(255, 255, 255);
-     display: flex;
+.star {
+     width: 75px;
+     background-color: #b3b3b3;
+     aspect-ratio: 1;
+     clip-path: polygon(50% 0,
+     calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))), 
+     calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+     calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+     calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
+   ); 
 }
-
-.progress-line-inner {
-     height: 2px;
-     background-color: rgb(0, 174, 255);
-     display: flex;
-     align-items: center;
+.star-filled {
+     width: 75px;
+     background-color: #ffe600;
+     aspect-ratio: 1;
+     clip-path: polygon(50% 0,
+     calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))), 
+     calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+     calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+     calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
+   ); 
+   transition: .5s;
 }
-
-.steps-ctn {
-     position: absolute;
-     width: 800px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
+.star:hover {
+     background: #ffe600;
+     transition: 0.5s ease-in-out;
 }
-
-.progress-circle {
-     width: 50px;
-     height: 50px;
-     background-color: rgb(255, 255, 255);
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-}
-
-.progress-current-circle {
-     width: 50px;
-     height: 50px;
-     background-color: rgb(255, 255, 255);
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     animation: circleOutline 2s forwards;
-     animation-delay: 0.25s;
-     
-}
-
-@keyframes circleOutline {
-     to {
-          outline: 3px solid rgb(0,174,255);
-     }
-}
-
-.progress-circle-filled {
-     width: 50px;
-     height: 50px;
-     background-color: rgb(255, 255, 255);
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     animation: circleFilled 1s forwards;
-}
-
-@keyframes circleFilled {
-     from {
-          background-color: rgb(255, 255, 255);
-     }
-     to {
-          background-color: rgb(0,174,255);
-          color: white;
-     }
-}
-
