@@ -10,19 +10,18 @@ function App(props) {
     setCurrentStar(index + 1);
   }
 
-  const starHoverHandler = (index) => {
-    setStarHover(index);
+  const mouseHoverHandler = (index) => {
+    setStarHover(index + 1);
   }
 
   return (
    <div className='container'>
     {[...Array(5)].map((item, index) => {
       return (
-        <div className={(starHover || currentStar) > index ? 'star-filled' : 'star'} 
-        key={index} onClick={() => starClickedHandler(index)}
-        onMouseEnter={() => starHoverHandler(index)}
-        onMouseLeave={() => setStarHover(null)}
-        ></div>
+        <div className={(starHover || currentStar) > index ? 'star-filled' : 'star'} key={index} 
+        onClick={() => starClickedHandler(index)}
+        onMouseEnter={() => mouseHoverHandler(index)}
+        onMouseLeave={() => setStarHover(null)}></div>
       )
     })}
    </div>

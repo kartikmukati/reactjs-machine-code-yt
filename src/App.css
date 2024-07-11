@@ -19,28 +19,24 @@ h1 {
 }
 .star {
      width: 75px;
-     background-color: #b3b3b3;
      aspect-ratio: 1;
+     background-color: grey;
      clip-path: polygon(50% 0,
-     calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))), 
+     calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),         
      calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
      calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
      calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
-   ); 
+    ); 
 }
+
 .star-filled {
      width: 75px;
-     background-color: #ffe600;
      aspect-ratio: 1;
+     background-color: rgb(248, 224, 0);
      clip-path: polygon(50% 0,
-     calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))), 
+     calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),         
      calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
      calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
      calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
-   ); 
-   transition: .5s;
-}
-.star:hover {
-     background: #ffe600;
-     transition: 0.5s ease-in-out;
+    ); 
 }
