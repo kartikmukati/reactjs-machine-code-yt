@@ -1,42 +1,43 @@
 body {
-     padding: 50px 50px;
-     background-color: rgb(255, 255, 255);
+     background-color: rgb(241, 241, 241);
+     padding: 2rem 2rem;
 }
 h1 {
      font-size: larger;
      color: black;
 }
 .container {
-     width: 800px;
-     height: 200px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     border-radius: 33px;
-     background: linear-gradient(145deg, #e83838, #961616);
-     box-shadow:  5px 5px 17px #b3b3b3,
-                 -5px -5px 17px #ffffff;
+     padding: 1.5rem;
+     border-radius: 65px;
+     background: #fefbfb;
 }
-.star {
-     width: 75px;
-     aspect-ratio: 1;
-     background-color: grey;
-     clip-path: polygon(50% 0,
-     calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),         
-     calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-     calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-     calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
-    ); 
+.item-list {
+     width: 100%;
+     display: flex;
+     gap: 20px;
+     scroll-behavior: smooth;
+     overflow: scroll;
+     scroll-snap-type: x mandatory;
 }
 
-.star-filled {
-     width: 75px;
-     aspect-ratio: 1;
-     background-color: rgb(248, 224, 0);
-     clip-path: polygon(50% 0,
-     calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),         
-     calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-     calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-     calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
-    ); 
+.item-list::-webkit-scrollbar {
+     display: none;
+}
+
+.item-list div {
+     width: 20rem;
+     height: 20rem;
+}
+
+.item {
+     width: 18rem;
+     height: 18rem;
+     scroll-snap-align: center;
+}
+
+
+.btn-ctn {
+     display: flex;
+     gap: 10px;
+     padding: 10px;
 }
