@@ -1,43 +1,36 @@
-body {
-     background-color: rgb(241, 241, 241);
-     padding: 2rem 2rem;
+.scroller {
+     display: grid;
+     & > * {
+          grid-area: 1 / 1 ;
+          width: 100%;
+          height: 1500px;
+     }
+     video {
+          width: 100%;
+          height: 75%;
+          margin-top: 18%;
+     }
+     svg {
+          width: 100%;
+          height: 100%;
+     }
 }
-h1 {
-     font-size: larger;
-     color: black;
-}
-.container {
-     padding: 1.5rem;
-     border-radius: 65px;
-     background: #fefbfb;
-}
-.item-list {
-     width: 100%;
-     display: flex;
-     gap: 20px;
-     scroll-behavior: smooth;
-     overflow: scroll;
-     scroll-snap-type: x mandatory;
-}
-
-.item-list::-webkit-scrollbar {
-     display: none;
+.mask {
+     mix-blend-mode: lighten;
+     background-color: white;
 }
 
-.item-list div {
-     width: 20rem;
-     height: 20rem;
+svg path {
+     stroke-width: 50;
+     stroke-dasharray: 1;
+     stroke-dashoffset: -1;
+     animation: ipadScroll both ease;
+     animation-timeline: scroll();
+     animation-range: 0 70vh;
 }
 
-.item {
-     width: 18rem;
-     height: 18rem;
-     scroll-snap-align: center;
-}
-
-
-.btn-ctn {
-     display: flex;
-     gap: 10px;
-     padding: 10px;
+@keyframes ipadScroll {
+     to {
+          stroke-dashoffset: 0;
+     }
 }
