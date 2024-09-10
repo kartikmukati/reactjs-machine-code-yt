@@ -1,30 +1,44 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
 
+  // ['1','2','3','4]
+  // ['','','','']
+  const [otp, setOtp] = useState(new Array(4).fill(""));
+
+  const onInputChange = (e, index) => {
+    const value = e.target.value.replace(/[^0-9]/g, "");
+    setOtp(pre => {
+      const temp = [...pre];
+      temp[index] = value;
+      return temp;
+    })
+    if(index < otp.length - 1 && value) {
+      e.target.nextSibling.focus();
+    }
+  }
+
+  const onKeyDown = (e, index) => {
+    if(e.key === "Backspace" && index > 0 && !e.target.value) {
+      e.target.previousSibling.focus();
+    }
+  }
+
   return (
-    <div className="scroller">
-      {/* SVG PAth */}
-      <div className="mask">
-        <svg viewBox="0 0 1025 437" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#clip0_3_17)">
-                  <rect width="1024.6" height="437" fill="white" />
-                  <path
-                    d="M1056 390.5L500 483L1029.5 312L226.5 467.5L1010 238.5L-14.5 442.5L956.5 174.5L26.5 349.5L854.5 104L107.5 251.5L755 34.5L277.5 118L396.5 50"
-                    stroke="black" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" pathLength="1" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_3_17">
-                    <rect width="1024.6" height="837" fill="none" />
-                  </clipPath>
-                </defs>
-              </svg>
-      </div>
-      {/* Video */}
-      <div className="video">
-      <video autoPlay playsInline muted disablePictureInPicture disableRemotePlayback loop src="https://www.apple.com/105/media/ww/ipad-10.9/2022/4c5d6d90-d0de-429a-84f7-cf8827181a11/anim/features/large_2x.mp4"></video>
-      </div>
+   <div className="ctn">
+    <h5>Enter the code we just sent</h5>
+    <span>We sent a sign-in code to +91-9656454589</span>
+    <span>The code will expire in 15 minutes</span>
+    <div className="otp-ctn">
+      {otp.map((item, index) => {
+        return (
+          <input key={index} type="text" maxLength={1} value={item} onChange={(e) => onInputChange(e, index)} onKeyDown={(e) => onKeyDown(e, index)} />
+        )
+      })}
     </div>
+    <button>Sign In</button>
+   </div>
   );
 }
 
