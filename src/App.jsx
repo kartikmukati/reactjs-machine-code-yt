@@ -3,41 +3,26 @@ import "./App.css";
 
 function App() {
 
-  // ['1','2','3','4]
-  // ['','','','']
-  const [otp, setOtp] = useState(new Array(4).fill(""));
+  const [time, setTime] = useState({})
 
-  const onInputChange = (e, index) => {
-    const value = e.target.value.replace(/[^0-9]/g, "");
-    setOtp(pre => {
-      const temp = [...pre];
-      temp[index] = value;
-      return temp;
+  setInterval(() => {
+     const hours = new Date().getHours() < 10 ? "0"+new Date().getHours() : new Date().getHours()
+     const minutes = new Date().getMinutes() < 10 ? "0"+new Date().getMinutes() : new Date().getMinutes();
+     const seconds = new Date().getSeconds() < 10 ? "0"+ new Date().getSeconds(): new Date().getSeconds()
+    setTime({
+      hours,
+      minutes,
+      seconds
     })
-    if(index < otp.length - 1 && value) {
-      e.target.nextSibling.focus();
-    }
-  }
-
-  const onKeyDown = (e, index) => {
-    if(e.key === "Backspace" && index > 0 && !e.target.value) {
-      e.target.previousSibling.focus();
-    }
-  }
+  },2000)
 
   return (
    <div className="ctn">
-    <h5>Enter the code we just sent</h5>
-    <span>We sent a sign-in code to +91-9656454589</span>
-    <span>The code will expire in 15 minutes</span>
-    <div className="otp-ctn">
-      {otp.map((item, index) => {
-        return (
-          <input key={index} type="text" maxLength={1} value={item} onChange={(e) => onInputChange(e, index)} onKeyDown={(e) => onKeyDown(e, index)} />
-        )
-      })}
+    <div className="clock-ctn">
+      <h5>{time.hours}:</h5>
+      <h5>{time.minutes}:</h5>
+      <h5>{time.seconds}</h5>
     </div>
-    <button>Sign In</button>
    </div>
   );
 }

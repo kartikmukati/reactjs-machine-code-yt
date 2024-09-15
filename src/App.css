@@ -1,71 +1,15 @@
-body {
-     background-image: url('./assets/login-background.jpg');
-}
-
-.ctn {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     gap: 8px;
-     width: 100vw;
+.clock-ctn {
+     background-color:rgb(29, 27, 27);
+     color: white;
+     width: 100%;
      height: 100vh;
-}
-
-.ctn h5 {
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     font-size: 2rem;
-     font-weight: 700;
-     color: white;
-}
-.ctn span {
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     font-size: 1rem;
-     font-weight: 500;
-     color: white;
-}
-
-.otp-ctn {
      display: flex;
      flex-direction: row;
      align-items: center;
      justify-content: center;
-     gap: 10px;
 }
-
-input[type='text'] {
-     border: none;
-     outline: none;
-     border-radius: 5px;
-     width: 3rem;
-     height: 3rem;
-     font-size: 2rem;
-     text-align: center;
-}
-input[type='text']:focus {
-     border: 2px solid rgb(0,0,0);
-     outline: none;
-     border-radius: 5px;
-     width: 3rem;
-     height: 3rem;
-     font-size: 2rem;
-     text-align: center;
-}
-
-button {
-     background-color: red;
-     color: white;
-     width: 15rem;
-     height: 2rem;
-     outline: none;
-     border: none;
-     border-radius: 5px;
+h5 {
+     font-size: 450px;
      font-weight: 700;
-     margin-top: 0.8rem;
-}
-
-button:hover {
-     background-color: rgb(228,8,8);
-     transition: 0.8s;
-     cursor: pointer;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
